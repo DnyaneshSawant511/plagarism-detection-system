@@ -13,3 +13,5 @@ build/
 .env.local
 
 .vscode/
+
+temp_code.py
