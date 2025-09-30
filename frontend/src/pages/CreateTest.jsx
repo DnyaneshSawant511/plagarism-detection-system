@@ -15,7 +15,7 @@ export default function CreateTest() {
     try {
       const res = await api.post(
         "/tests",
-        { title, description, problem },
+        { title, description, problemStatement: problem },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setTestCode(res.data.testCode);

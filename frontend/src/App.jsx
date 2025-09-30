@@ -6,6 +6,7 @@ import TestDetail from "./pages/TestDetail";
 import SubmissionDetail from "./pages/SubmissionDetail";
 import PrivateRoute from "./components/PrivateRoute";
 import CreateTest from "./pages/CreateTest";
+import TestSimilarity from "./pages/TestSimilarity";
 
 function App() {
   return (
@@ -45,6 +46,14 @@ function App() {
           element={
             <PrivateRoute>
               <CreateTest />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/test-similarity"
+          element={
+            <PrivateRoute>
+              <TestSimilarity />
             </PrivateRoute>
           }
         />
