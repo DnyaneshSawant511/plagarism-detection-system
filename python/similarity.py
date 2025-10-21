@@ -83,9 +83,16 @@ def compare_texts(raw1, raw2):
     results = {
         "Cosine": cosine_similarity(norm1, norm2),
         "TFIDF Cosine": cosine_tfidf_similarity(norm1, norm2),
-        "Jaccard": jaccard_similarity(norm1, norm2),
+        #"Jaccard": jaccard_similarity(norm1, norm2),
         "Levenshtein": levenshtein_ratio(norm1, norm2),
         "AST": ast_similarity(raw1, raw2),
     }
-    results["Final Score"] = max(results.values())
+    #results["Final Score"] = max(results.values())
+    final_score = (
+        0.30 * results["Cosine"]
+        + 0.30 * results["TFIDF Cosine"]
+        + 0.25 * results["Levenshtein"]
+        + 0.15 * results["AST"]
+    )
+    results["Final Score"] = final_score
     return results

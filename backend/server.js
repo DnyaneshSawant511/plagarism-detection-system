@@ -6,6 +6,7 @@ import morgan from "morgan";
 import authRoutes from "./routes/authRoutes.js";
 import testRoutes from "./routes/testRoutes.js";
 import submissionRoutes from "./routes/submissionRoutes.js";
+import plagiarismRoutes from "./routes/plagiarismRoutes.js";
 
 config();
 connectDB();
@@ -19,6 +20,7 @@ app.use(morgan("dev"));
 app.use("/api/auth", authRoutes);
 app.use("/api/tests", testRoutes);
 app.use("/api/submissions", submissionRoutes);
+app.use("/api/plagiarism", plagiarismRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
