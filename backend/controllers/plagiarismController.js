@@ -71,6 +71,8 @@ export const generatePlagiarismGraph = async (req, res) => {
             from: submissions[i]._id,
             to: submissions[j]._id,
             similarity,
+            fromName: submissions[i].userName,
+            toName: submissions[j].userName,
           });
         }
       }
