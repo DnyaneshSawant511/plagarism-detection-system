@@ -63,8 +63,13 @@ export const generatePlagiarismGraph = async (req, res) => {
           code2: submissions[j].code,
         });
 
+        const final_score = resSim.data.final_score;
+        const ml_prediction = resSim.data.ml_prediction;
+        const isPlagiarism = (final_score >= threshold) || (ml_prediction === 1);
+
         const similarity = resSim.data.final_score;
-        if (similarity >= threshold) {
+        // if (similarity >= threshold) {
+        if (isPlagiarism) {
           // Union the sets
           dsu.union(i, j);
           edges.push({
