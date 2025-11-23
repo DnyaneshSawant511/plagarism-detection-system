@@ -89,7 +89,7 @@ export default function TestDetail() {
   return (
     <div>
       <Navbar />
-      <div className="p-6 max-w-6xl mx-auto">
+      <div className="p-6 max-w-8xl mx-auto">
         {test && (
           <div className="mb-6 bg-white shadow rounded p-4">
             <h2 className="text-2xl font-bold">{test.title}</h2>
@@ -162,7 +162,7 @@ export default function TestDetail() {
                   ctx.textAlign = "center";
                   ctx.textBaseline = "middle";
                   ctx.fillStyle = "#111";
-                  ctx.fillText(label, node.x, node.y - 14);
+                  ctx.fillText(label, node.x, node.y - 18);
                 }}
                 linkColor={() => "#888"}
                 linkWidth={() => 4}
@@ -239,6 +239,7 @@ export default function TestDetail() {
                       <th className="px-4 py-2 border text-left">User A</th>
                       <th className="px-4 py-2 border text-left">User B</th>
                       <th className="px-4 py-2 border text-center">Similarity %</th>
+                      <th className="px-4 py-2 border text-center">Details</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -284,6 +285,13 @@ export default function TestDetail() {
                             <p className="text-red-600">
                               {link.similarity.toFixed(2)}%
                             </p>
+                          </td>
+                          <td className="px-4 py-2 border text-center">
+                            <Link to={`/compare/${fromId}/${toId}`}>
+                              <span className="text-blue-600 cursor-pointer hover:underline">
+                                🔍
+                              </span>
+                            </Link>
                           </td>
                         </tr>
                       );

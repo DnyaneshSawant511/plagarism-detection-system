@@ -7,6 +7,7 @@ import SubmissionDetail from "./pages/SubmissionDetail";
 import PrivateRoute from "./components/PrivateRoute";
 import CreateTest from "./pages/CreateTest";
 import TestSimilarity from "./pages/TestSimilarity";
+import CompareDetail from "./pages/CompareDetail";
 
 function App() {
   return (
@@ -46,6 +47,14 @@ function App() {
           element={
             <PrivateRoute>
               <CreateTest />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/compare/:idA/:idB"
+          element={
+            <PrivateRoute>
+              <CompareDetail />
             </PrivateRoute>
           }
         />
